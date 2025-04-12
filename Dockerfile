@@ -12,7 +12,8 @@ LABEL maintainer="iskoldt-X"
 RUN apt-get update && \
     apt-get install -y nginx libnginx-mod-http-dav-ext apache2-utils bash && \
     rm -rf /var/lib/apt/lists/* && \
-    rm -rf /etc/nginx/sites-enabled/*
+    rm -rf /etc/nginx/sites-enabled/* && \
+    usermod -u 3000 www-data
 
 # Copy the WebDAV configuration file.
 # This configuration (webdav.conf) will be placed in the Nginx config directory.
